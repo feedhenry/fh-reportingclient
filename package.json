@@ -1,7 +1,7 @@
 {
   "name": "fh-reportingclient",
   "description": "FH Reporting Client",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "repository": {
     "type": "git",
     "url": "git@github.com:feedhenry/fh-reportingclient.git"
@@ -18,7 +18,7 @@
     "test": "grunt eslint fh-test"
   },
   "engines": {
-    "node": ">=0.4.12"
+    "node": "4.4"
   },
   "dependencies": {
     "async": "1.5.2",

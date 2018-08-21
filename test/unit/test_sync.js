@@ -2,7 +2,12 @@ var proxy = require('proxyquire');
 var assert = require('assert');
 var UNDER_TEST = '../../lib/sync';
 
-function MockMbaasClient(envId, mbaasConf) {
+function MockMbaasClient(env, params) {
+  assert.ok(env === "test");
+  assert.ok(params.accessKey === "accesskey");
+  assert.ok(params.app === "test instance");
+  assert.ok(params.project === "project");
+  assert.ok(params.url === "https://testhost/");
   this.app = {
     message: {
       sendbatch: function (params,cb) {

@@ -1,7 +1,7 @@
 {
   "name": "fh-reportingclient",
   "description": "FH Reporting Client",
-  "version": "0.5.10",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:feedhenry/fh-reportingclient.git"

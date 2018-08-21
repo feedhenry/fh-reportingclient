@@ -1,7 +1,7 @@
 {
   "name": "fh-reportingclient",
   "description": "FH Reporting Client",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "repository": {
     "type": "git",
     "url": "git@github.com:feedhenry/fh-reportingclient.git"
@@ -18,12 +18,12 @@
     "test": "grunt eslint fh-test"
   },
   "engines": {
-    "node": "6.9"
+    "node": ">=6.9"
   },
   "dependencies": {
     "async": "1.5.2",
-    "bunyan": "1.8.2",
-    "fh-mbaas-client": "0.16.5",
+    "bunyan-lite": "^1.0.1",
+    "fh-mbaas-client": "1.1.4",
     "request": "2.85.0"
   },
   "man": "./man/fh-reportingclient.1",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "grunt": "^1.0.2",
-    "grunt-fh-build": "^2.0.0",
+    "grunt-fh-build": "^2.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^5.1.1",
     "proxyquire": "^2.0.1",

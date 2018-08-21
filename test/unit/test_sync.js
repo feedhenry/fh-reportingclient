@@ -2,6 +2,20 @@ var proxy = require('proxyquire');
 var assert = require('assert');
 var UNDER_TEST = '../../lib/sync';
 
+function MockMbaasClient(envId, mbaasConf) {
+  this.app = {
+    message: {
+      sendbatch: function (params,cb) {
+        console.log("send batch ", params);
+        assert.ok(params.domain === "domain");
+        assert.ok(params.environment === "test");
+        assert.ok(Array.isArray(params.data),"expected an array");
+        cb();
+      }
+    }
+  }
+}
+
 module.exports.test_mbaas_client_init_with_correct_value = function (finish) {
   process.env.FH_INSTANCE = "test instance";
   process.env.FH_DOMAIN = "domain";
@@ -12,28 +26,7 @@ module.exports.test_mbaas_client_init_with_correct_value = function (finish) {
   process.env.FH_WIDGET = "project";
   process.env.FH_MBAAS_PROTOCOL = 'https';
   var mocks = {
-    'fh-mbaas-client': {
-      "app": {
-        "message": {
-          sendbatch: function (params,cb) {
-            console.log("send batch ", params);
-            assert.ok(params.domain === "domain");
-            assert.ok(params.environment === "test");
-            assert.ok(Array.isArray(params.data),"expected an array");
-            cb();
-          }
-        }
-      },
-      "initEnvironment": function (env, params) {
-        assert.ok(env === "test");
-        assert.ok(params.accessKey === "accesskey");
-        assert.ok(params.app === "test instance");
-        assert.ok(params.project === "project");
-        assert.ok(params.url === "https://testhost/");
-
-      }
-
-    }
+    'fh-mbaas-client': MockMbaasClient
   };
 
   var sync = proxy(UNDER_TEST,mocks);

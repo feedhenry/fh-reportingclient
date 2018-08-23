@@ -31,7 +31,9 @@ module.exports.test_mbaas_client_init_with_correct_value = function (finish) {
   process.env.FH_WIDGET = "project";
   process.env.FH_MBAAS_PROTOCOL = 'https';
   var mocks = {
-    'fh-mbaas-client': MockMbaasClient
+    'fh-mbaas-client': {
+      'MbaasClient': MockMbaasClient
+    }
   };
 
   var sync = proxy(UNDER_TEST,mocks);

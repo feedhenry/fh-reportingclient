@@ -8,8 +8,10 @@ exports.test_accept_message_sends_after_n_messages = function (finish){
   var syncBatch = sinon.stub();
   var mocks = {
     'fh-mbaas-client':{
-      "app":{
-        "message":{}
+      'MbaasClient': {
+        "app":{
+          "message":{}
+        }
       }
     },
     './sync':function (){

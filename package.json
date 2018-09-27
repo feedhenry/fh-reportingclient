@@ -24,7 +24,7 @@
     "async": "1.5.2",
     "bunyan-lite": "^1.0.1",
     "fh-mbaas-client": "1.1.4",
-    "request": "2.85.0"
+    "request": "2.88.0"
   },
   "man": "./man/fh-reportingclient.1",
   "license": "Apache-2.0",
